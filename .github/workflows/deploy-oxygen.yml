@@ -1,0 +1,35 @@
+name: Deploy to Shopify Oxygen
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Headless Storefront
+        run: npm run build
+        env:
+          SHOPIFY_STORE_DOMAIN: ${{ secrets.SHOPIFY_STORE_DOMAIN || 'fcbl-1razgs1d.myshopify.com' }}
+          SHOPIFY_STOREFRONT_ACCESS_TOKEN: ${{ secrets.SHOPIFY_STOREFRONT_ACCESS_TOKEN || '513f44f0722a34486119f8bd63695059' }}
+          SHOPIFY_STOREFRONT_API_VERSION: '2024-01'
+
+      - name: Deploy to Oxygen
+        uses: Shopify/hydrogen-deploy-action@v1
+        with:
+          oxygenDeploymentToken: ${{ secrets.SHOPIFY_OXYGEN_DEPLOYMENT_TOKEN }}

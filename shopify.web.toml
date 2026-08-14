@@ -1,0 +1,8 @@
+# Learn more about configuring web components at https://shopify.dev/docs/apps/tools/cli/configuration#web-components
+
+type = "frontend"
+
+[commands]
+build = "npm run build"
+dev = "npm run dev"
+port = 3000
