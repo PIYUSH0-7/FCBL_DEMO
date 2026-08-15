@@ -72,6 +72,19 @@ export const links: LinksFunction = () => {
     },
     {
       rel: 'preconnect',
+      href: 'https://fonts.googleapis.com',
+    },
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.gstatic.com',
+      crossOrigin: 'anonymous',
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap',
+    },
+    {
+      rel: 'preconnect',
       href: 'https://shop.app',
     },
     {rel: 'icon', type: 'image/svg+xml', href: favicon},
@@ -139,6 +152,8 @@ export const meta = ({data}: MetaArgs<typeof loader>) => {
   return getSeoMeta(data!.seo as SeoConfig);
 };
 
+import {ShopProvider} from '~/context/ShopContext';
+
 function Layout({children}: {children?: React.ReactNode}) {
   const nonce = useNonce();
   const data = useRouteLoaderData<typeof loader>('root');
@@ -149,28 +164,14 @@ function Layout({children}: {children?: React.ReactNode}) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta name="msvalidate.01" content="A352E6A0AF9A652267361BBB572B8468" />
         <link rel="stylesheet" href={styles}></link>
         <Meta />
         <Links />
       </head>
       <body>
-        {data ? (
-          <Analytics.Provider
-            cart={data.cart}
-            shop={data.shop}
-            consent={data.consent}
-          >
-            <PageLayout
-              key={`${locale.language}-${locale.country}`}
-              layout={data.layout}
-            >
-              {children}
-            </PageLayout>
-          </Analytics.Provider>
-        ) : (
-          children
-        )}
+        <ShopProvider>
+          {children}
+        </ShopProvider>
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
       </body>

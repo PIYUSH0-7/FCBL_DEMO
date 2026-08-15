@@ -3,14 +3,32 @@ import typographyPlugin from '@tailwindcss/typography';
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./app/**/*.{js,ts,jsx,tsx}'],
+  content: ['./app/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
         primary: 'rgb(var(--color-primary) / <alpha-value>)',
         contrast: 'rgb(var(--color-contrast) / <alpha-value>)',
-        notice: 'rgb(var(--color-accent) / <alpha-value>)',
-        shopPay: 'rgb(var(--color-shop-pay) / <alpha-value>)',
+        accent: 'rgb(var(--color-accent) / <alpha-value>)',
+        gold: {
+          50: '#fdfbf7',
+          100: '#f9f5ec',
+          200: '#f2e8d4',
+          300: '#e8d5b0',
+          400: '#d9bb82',
+          500: '#c59a4c',
+          600: '#ab7f37',
+          700: '#8c622b',
+          800: '#714e26',
+          900: '#5e4123',
+        },
+        royal: {
+          navy: '#0A1128',
+          blue: '#1C3144',
+          maroon: '#4A0E17',
+          emerald: '#064E3B',
+          charcoal: '#1A1A1A',
+        },
       },
       screens: {
         sm: '32em',
@@ -25,38 +43,14 @@ export default {
         'xl-only': {min: '80em', max: '96em'},
         '2xl-only': {min: '96em'},
       },
-      spacing: {
-        nav: 'var(--height-nav)',
-        screen: 'var(--screen-height, 100vh)',
-      },
-      height: {
-        screen: 'var(--screen-height, 100vh)',
-        'screen-no-nav':
-          'calc(var(--screen-height, 100vh) - var(--height-nav))',
-        'screen-dynamic': 'var(--screen-height-dynamic, 100vh)',
-      },
-      width: {
-        mobileGallery: 'calc(100vw - 3rem)',
-      },
-      fontFamily: {
-        sans: ['Helvetica Neue', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        serif: ['"IBMPlexSerif"', 'Palatino', 'ui-serif'],
-      },
-      fontSize: {
-        display: ['var(--font-size-display)', '1.1'],
-        heading: ['var(--font-size-heading)', '1.25'],
-        lead: ['var(--font-size-lead)', '1.333'],
-        copy: ['var(--font-size-copy)', '1.5'],
-        fine: ['var(--font-size-fine)', '1.333'],
-      },
-      maxWidth: {
-        'prose-narrow': '45ch',
-        'prose-wide': '80ch',
-      },
       boxShadow: {
         border: 'inset 0px 0px 0px 1px rgb(var(--color-primary) / 0.08)',
         darkHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.4)',
         lightHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.05)',
+      },
+      fontFamily: {
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"Cinzel"', 'Cinzel', '"Plus Jakarta Sans"', 'sans-serif'],
       },
     },
   },

@@ -1,24 +1,14 @@
-/// <reference types="vite/client" />
+/// <reference types="@remix-run/react" />
 /// <reference types="@shopify/remix-oxygen" />
 /// <reference types="@shopify/oxygen-workers-types" />
 
-import type {
-  WithCache,
-  HydrogenCart,
-  HydrogenSessionData,
-} from '@shopify/hydrogen';
-import type {Storefront, CustomerAccount} from '~/lib/type';
-import type {AppSession} from '~/lib/session.server';
-
+// Enhance TypeScript's built-in env type
 declare global {
   /**
    * A global `process` object is only available during build to access NODE_ENV.
    */
   const process: {env: {NODE_ENV: 'production' | 'development'}};
 
-  /**
-   * Declare expected Env parameter in fetch handler.
-   */
   interface Env {
     SESSION_SECRET: string;
     PUBLIC_STOREFRONT_API_TOKEN: string;
@@ -28,7 +18,6 @@ declare global {
     PUBLIC_CUSTOMER_ACCOUNT_API_CLIENT_ID: string;
     PUBLIC_CUSTOMER_ACCOUNT_API_URL: string;
     PUBLIC_CHECKOUT_DOMAIN: string;
-    SHOP_ID: string;
   }
 }
 
@@ -37,19 +26,11 @@ declare module '@shopify/remix-oxygen' {
    * Declare local additions to the Remix loader context.
    */
   export interface AppLoadContext {
-    waitUntil: ExecutionContext['waitUntil'];
-    session: AppSession;
-    storefront: Storefront;
-    customerAccount: CustomerAccount;
-    cart: HydrogenCart;
     env: Env;
+    cart: any;
+    storefront: any;
+    customerAccount: any;
+    session: any;
+    waitUntil: ExecutionContext['waitUntil'];
   }
-
-  /**
-   * Declare local additions to the Remix session data.
-   */
-  interface SessionData extends HydrogenSessionData {}
 }
-
-// Needed to make this file a module.
-export {};

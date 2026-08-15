@@ -1,9 +1,10 @@
-node_modules
-/.cache
-/build
-/dist
-/public/build
-/.mf
-.env
-.shopify
-.react-router
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+SHOPIFY ACCESS TOKENS.txt
+

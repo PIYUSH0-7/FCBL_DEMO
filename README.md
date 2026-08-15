@@ -1,58 +1,20 @@
-# Hydrogen template: Demo Store
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dovetail with [Remix](https://remix.run/), Shopify’s full stack web framework. This template contains a **full-featured setup** of components, queries and tooling to get started with Hydrogen. It is deployed at [hydrogen.shop](https://hydrogen.shop)
+# Run and deploy your AI Studio app
 
-[Check out Hydrogen docs](https://shopify.dev/custom-storefronts/hydrogen)
-[Get familiar with Remix](https://remix.run/docs/en/v1)
+This contains everything you need to run your app locally.
 
-## What's included
+View your app in AI Studio: https://ai.studio/apps/ac7b90e4-6a1d-438f-958a-8c12aacdf86f
 
-- Remix
-- Hydrogen
-- Oxygen
-- Shopify CLI
-- ESLint
-- Prettier
-- GraphQL generator
-- TypeScript and JavaScript flavors
-- Tailwind CSS (via PostCSS)
-- Full-featured setup of components and routes
+## Run Locally
 
-## Getting started
+**Prerequisites:**  Node.js
 
-**Requirements:**
 
-- Node.js version 18.0.0 or higher
-
-```bash
-npm create @shopify/hydrogen@latest -- --template demo-store
-```
-
-Remember to update `.env` with your shop's domain and Storefront API token!
-
-## Building for production
-
-```bash
-npm run build
-```
-
-## Local development
-
-```bash
-npm run dev
-```
-
-## Setup for using Customer Account API (`/account` section)
-
-### Setup public domain using ngrok
-
-1. Setup a [ngrok](https://ngrok.com/) account and add a permanent domain (ie. `https://<your-ngrok-domain>.app`).
-1. Install the [ngrok CLI](https://ngrok.com/download) to use in terminal
-1. Start ngrok using `ngrok http --domain=<your-ngrok-domain>.app 3000`
-
-### Include public domain in Customer Account API settings
-
-1. Go to your Shopify admin => `Hydrogen` or `Headless` app/channel => Customer Account API => Application setup
-1. Edit `Callback URI(s)` to include `https://<your-ngrok-domain>.app/account/authorize`
-1. Edit `Javascript origin(s)` to include your public domain `https://<your-ngrok-domain>.app` or keep it blank
-1. Edit `Logout URI` to include your public domain `https://<your-ngrok-domain>.app` or keep it blank
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

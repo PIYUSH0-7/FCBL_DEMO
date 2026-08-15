@@ -1,0 +1,6 @@
+{
+  "name": "FCBL Jewellery | Fateh Chand Jewels (Palmonas Experience)",
+  "description": "Luxury Demi-Fine & Heritage Jewellery e-commerce store powered by Shopify Hydrogen & Storefront API, honoring the 120-year legacy of Fateh Chand Bansi Lal Jewellers (Estd. 1904).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

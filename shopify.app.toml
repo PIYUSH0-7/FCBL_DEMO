@@ -1,0 +1,29 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "3ce5e31e5a0e712a9dbc094f6a6d52a9"
+name = "FCBL Jewellery Storefront"
+handle = "fcbl-jewellery-storefront"
+application_url = "http://localhost:3000"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "fcbl-1razgs1d.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_products,write_products,read_inventory,write_inventory,unauthenticated_read_product_listings,unauthenticated_read_product_inventory,unauthenticated_write_checkouts,unauthenticated_read_checkouts"
+
+[auth]
+redirect_urls = [
+  "http://localhost:3000/auth/callback",
+  "http://localhost:3000/auth/shopify/callback",
+  "http://localhost:3000/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
