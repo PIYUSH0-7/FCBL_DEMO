@@ -18,20 +18,19 @@ export default defineConfig({
     tsconfigPaths(),
   ],
   ssr: {
-    noExternal: true,
-    optimizeDeps: {
-      include: ['typographic-base'],
-    },
-  },
-  optimizeDeps: {
-    include: [
+    noExternal: [
+      'react',
+      'react-dom',
+      'react/jsx-runtime',
       'clsx',
       '@headlessui/react',
-      'typographic-base',
+      'lucide-react',
+      'motion',
+      'canvas-confetti',
+      'tiny-invariant',
+      'isbot',
       'react-intersection-observer',
-      'react-use/esm/useScroll',
-      'react-use/esm/useDebounce',
-      'react-use/esm/useWindowScroll',
+      'react-use',
     ],
   },
   build: {
