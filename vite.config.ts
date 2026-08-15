@@ -18,20 +18,8 @@ export default defineConfig({
     tsconfigPaths(),
   ],
   ssr: {
-    noExternal: [
-      'react',
-      'react-dom',
-      'react/jsx-runtime',
-      'clsx',
-      '@headlessui/react',
-      'lucide-react',
-      'motion',
-      'canvas-confetti',
-      'tiny-invariant',
-      'isbot',
-      'react-intersection-observer',
-      'react-use',
-    ],
+    target: 'webworker',
+    noExternal: true,
   },
   build: {
     assetsInlineLimit: 0,
