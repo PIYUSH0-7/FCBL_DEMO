@@ -18,6 +18,7 @@ export default defineConfig({
     tsconfigPaths(),
   ],
   ssr: {
+    noExternal: true,
     optimizeDeps: {
       include: ['typographic-base'],
     },
